@@ -9,6 +9,8 @@ namespace Skyline.Domain {
 
         public List<Coordinate> GetSkyline(List<Building> buildings) {
             List<Coordinate> coordinates = new List<Coordinate>();
+            var sortedBuildings = buildings.OrderBy(l => l.Left).ThenByDescending(h => h.Height);
+
 
             return coordinates;
         }

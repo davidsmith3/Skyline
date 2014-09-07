@@ -15,5 +15,17 @@ namespace Skyline.Test {
 
             Assert.AreEqual(0, result.Count);
         }
+
+        [TestMethod]
+        public void Test_OneBuilding() {
+            List<Building> buildings = new List<Building>();
+            buildings.Add(new Building(1, 11, 5));
+
+            Processor p = new Processor();
+            List<Coordinate> result = p.GetSkyline(buildings);
+
+            Assert.AreEqual(1, result.Count);
+            //Assert.AreEqual()
+        }
     }
 }
