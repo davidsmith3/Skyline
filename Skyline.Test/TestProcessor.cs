@@ -11,7 +11,7 @@ namespace Skyline.Test {
             List<Building> buildings = new List<Building>();
 
             Processor p = new Processor();
-            List<Coordinate> result = p.GetSkyline(buildings);
+            List<int> result = p.GetSkyline(buildings);
 
             Assert.AreEqual(0, result.Count);
         }
@@ -22,10 +22,29 @@ namespace Skyline.Test {
             buildings.Add(new Building(1, 11, 5));
 
             Processor p = new Processor();
-            List<Coordinate> result = p.GetSkyline(buildings);
+            List<int> result = p.GetSkyline(buildings);
 
-            Assert.AreEqual(1, result.Count);
-            //Assert.AreEqual()
+            Assert.AreEqual(4, result.Count);
+            Assert.AreEqual(1, result[0]);
+            Assert.AreEqual(11, result[1]);
+            Assert.AreEqual(5, result[2]);
+            Assert.AreEqual(0, result[3]);
+        }
+
+        [TestMethod]
+        public void Test_WebExample() {
+            List<Building> buildings = new List<Building>();
+            buildings.Add(new Building(1, 11, 5));
+            buildings.Add(new Building(2, 6, 7));
+
+            Processor p = new Processor();
+            List<int> result = p.GetSkyline(buildings);
+
+            Assert.AreEqual(4, result.Count);
+            Assert.AreEqual(1, result[0]);
+            Assert.AreEqual(11, result[1]);
+            Assert.AreEqual(5, result[2]);
+            Assert.AreEqual(0, result[3]);
         }
     }
 }
