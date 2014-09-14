@@ -12,10 +12,7 @@ namespace Skyline.Domain {
             if (buildings.Count == 0) return coordinates;
             int maxX = buildings.Max(x => x.Right);
 
-            Dictionary<int, int> maxY = new Dictionary<int, int>();
-            for (int x = 0; x <= maxX; x++) {
-                maxY.Add(x, 0);
-            }
+            int[] maxY = new int[maxX + 1];
 
             foreach (var building in buildings) {
                 for (int x = building.Left; x < building.Right; x++) {
