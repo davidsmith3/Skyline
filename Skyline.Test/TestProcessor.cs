@@ -66,5 +66,23 @@ namespace Skyline.Test {
             Assert.AreEqual(29, result[16]);
             Assert.AreEqual(0, result[17]);
         }
+
+        [TestMethod]
+        public void Test_OneBuildingAdjacentToAnother() {
+            List<Building> buildings = new List<Building>();
+            buildings.Add(new Building(1, 11, 5));
+            buildings.Add(new Building(5, 6, 7));
+
+            Processor p = new Processor();
+            List<int> result = p.GetSkyline(buildings);
+
+            Assert.AreEqual(6, result.Count);
+            Assert.AreEqual(1, result[0]);
+            Assert.AreEqual(11, result[1]);
+            Assert.AreEqual(5, result[2]);
+            Assert.AreEqual(6, result[3]);
+            Assert.AreEqual(7, result[4]);
+            Assert.AreEqual(0, result[5]);
+        }
     }
 }
